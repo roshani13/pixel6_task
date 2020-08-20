@@ -1,0 +1,108 @@
+<div class="container myform">
+    <h1 class="text-center myh1">Loan Application Details</h1>
+    <div class="row formrow">
+        <form class="form-horizontal" [formGroup]="loanform" >
+            <div class="row form-group">
+                <label  class="control-label col-sm-2" for="name">Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control " id="fullName" maxlength="140" formControlName="fullName">
+                    <div
+                        *ngIf="loanform.get('fullName').errors && (loanform.get('fullName').dirty || loanform.get('fullName').touched)">
+                        <p class="error" *ngIf="loanform.get('fullName').errors.required">
+                            Name is required.
+                        </p>
+                        <p class="error" *ngIf="loanform.get('fullName').errors.pattern">
+                            Name not contain digit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <label class="control-label col-sm-2" for="mobile">Mobile Number:</label>
+                <div class="col-sm-8">
+                    <div class="input-group-prepend">
+                        <span matPrefix>(+91)</span>
+
+
+                        <input type="text" class="form-control" id="mobile" maxlength="10"  formControlName="mobile">
+                    </div>
+                    <div 
+                        *ngIf="loanform.get('mobile').invalid && (loanform.get('mobile').dirty || loanform.get('mobile').touched)">
+                        <p class="error" *ngIf="loanform.get('mobile').errors.required">
+                            Number is required.
+                        </p>
+                        <p class="error" *ngIf="loanform.get('mobile').errors.maxlength">
+                            Number must be at least 10 digit long.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row form-group">  
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" maxlength="255" formControlName="email">
+                    <div
+                        *ngIf="loanform.get('email').invalid && (loanform.get('email').dirty || loanform.get('email').touched)">
+                        <p class="error" *ngIf="loanform.get('email').errors.required">
+                            Email is required.
+                        </p>
+                        <p class="error" *ngIf="loanform.get('email').errors.pattern">
+                            Email format not valid.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <label class="control-label col-sm-2" for="panNumber">PAN No:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" class="form-control" id="panNumber" formControlName="panNumber">
+                    <div
+                        *ngIf="loanform.get('panNumber').invalid && (loanform.get('panNumber').dirty || loanform.get('panNumber').touched)">
+                        <p class="error" *ngIf="loanform.get('panNumber').errors.required">
+                            PAN No is required.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+                <div class="row form-group">
+                    <label class="control-label col-sm-2" for="city">City:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" rows="3" id="city" formControlName="city">
+                        <div
+                            *ngIf="loanform.get('city').invalid && (loanform.get('city').dirty || loanform.get('city').touched)">
+                            <p class="error" *ngIf="loanform.get('city').errors.required">
+                                City is required.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group" >
+                    <label class="control-label col-sm-2" for="otp">EnterOTP</label>
+                    <div class=" col-sm-8 ">
+                        <input type="text" class="form-control" id="otp" formControlName="otp" maxlength="4">
+                        <div
+                            *ngIf="loanform.get('otp').errors && (loanform.get('otp').dirty || loanform.get('otp').touched)">
+                            <p class="error" *ngIf="loanform.get('otp').errors.required">
+                                OTP is required.
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row form-group">
+                    <div class="col-sm-4 offset-sm-4">
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg mt-3 mb-3" (click)="getotp()">
+                            <span *ngIf="step == 1">Get OTP</span>
+                            <span *ngIf="step == 2">Verify OTP</span>
+                        </button>
+                        <div>Time left to resend OTP= <span id="timer"></span></div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>

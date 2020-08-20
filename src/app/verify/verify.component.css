@@ -1,0 +1,58 @@
+.myform{
+    text-align: center;
+    background-color:rgb(233, 216, 216);
+    margin: 0 auto;
+}
+.mytable{
+        margin-bottom: 20px;
+}
+
+.eduinput{
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 130px;
+    height: 37px;
+    border: none;
+    border-radius: 4px;
+}
+.myh1{
+    border: 1px solid black;
+    padding: 3px;
+    margin-bottom: 30px;
+    background-color: rgb(130, 230, 225);
+    height: 65px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.headerrow a{
+  font-size: 20px;
+  padding: 5px;
+  color: aliceblue;
+  margin-top: 10px;
+}
+.formrow{
+    margin-left: 150px !important ;
+    margin-right: 200px !important ;
+}
+.removebtn{
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 75px;
+    height: 37px;
+    border: none;
+    border-radius: 4px;
+}
+.my-check-lable{
+   padding-left: 20px;
+   padding-right: 25px;
+   padding-top: 2px;
+   padding-bottom: 2px;
+}
+.error{
+    color: red;
+}
+.control-label
+{
+    text-align: left;
+}
